@@ -1,0 +1,306 @@
+html, body {
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+	background-color: black;
+	color: white;
+	font-family: 'Source Serif Pro', serif;
+}
+
+.bg {
+	z-index: -1;
+	position: absolute;
+	display: grid;
+	grid-template-columns: 50vw 50vw;
+	grid-auto-rows: 100vh;
+	overflow: hidden;
+}
+
+.bg-left,
+.bg-right {
+	position: relative;
+}
+
+.bg-left::before,
+.bg-right::before {
+	z-index: -1;
+	position: absolute;
+	content: '';
+	top: -10%;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(ellipse farthest-corner at center center,
+	            	rgba(75,18,07, 1)  0%,
+	            	rgba(00,00,00, 0) 75%
+	            );
+}
+
+.bg-left::before {
+	left: 5%;
+}
+
+.bg-right::before {
+	left: -5%
+}
+
+.bg-left::after,
+.bg-right::after {
+	position: absolute;
+	content: '';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(circle,
+	            	rgba(0,0,0, 0) 40%,
+	            	rgba(0,0,0, 1) 80%
+	            );
+}
+
+.player1-img,
+.player2-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.player1-img {
+	transform: scale(1.1);
+}
+
+.player2-img {
+	transform: scale(1.1) rotateY(180deg);
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	width: 100vw;
+}
+
+.player1,
+.player2 {
+	display: flex;
+	align-items: flex-end;
+}
+
+.player1-name-bg,
+.player2-name-bg {
+	position: relative;
+	margin-bottom: 13.5vh;
+	width: 100%;
+	text-align: center;
+}
+
+.player1-name-bg::before,
+.player2-name-bg::before {
+	position: absolute;
+	top: -2px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	background: linear-gradient(
+	            	rgba(247,166,103, 0.5)   0%,
+	            	rgba(255,255,255, 0.0)  10%, 
+	            	rgba(247,166,103, 0.5)  30%,
+	            	rgba(247,166,103, 0.7)  40%,
+	            	rgba(247,166,103, 0.8)  50%,
+	            	rgba(247,166,103, 0.7)  60%,
+	            	rgba(247,166,103, 0.5)  70%,
+	            	rgba(255,255,255, 0.0)  90%,
+	            	rgba(247,166,103, 0.5) 100%
+	            );
+}
+
+.player1-name-bg::before {
+	-webkit-mask-image: -webkit-linear-gradient(right,
+	                    	rgba(0,0,0, 0)  5%,
+	                    	rgba(0,0,0, 1) 30%,
+	                    	rgba(0,0,0, 0) 80%
+	                    );
+}
+
+.player2-name-bg::before {
+	-webkit-mask-image: -webkit-linear-gradient(left,
+	                    	rgba(0,0,0, 0)  5%,
+	                    	rgba(0,0,0, 1) 30%,
+	                    	rgba(0,0,0, 0) 80%
+	                    );
+}
+
+.player1-name,
+.player2-name {
+	position: relative;
+	font-size: 6.5vh;
+	font-weight: 900;
+	text-transform: uppercase;
+	transform: scaleX(0.4);
+	filter: drop-shadow(6px 2px 1px rgba(0,0,0, 0.8));
+	background: linear-gradient(
+	            	rgba(255,255,255, 1)   0%,
+	            	rgba(255,230,105, 1) 100%
+	            );
+	-webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.fighters {
+	position: relative;
+	padding: 9vh 0;
+	height: 100vh;
+}
+
+.fighters::before {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	background: linear-gradient(90deg,
+	            	rgba(00,00,00, 0.0)  8.0%,
+	            	rgba(82,16,05, 1.0)  8.1%,
+	            	rgba(82,16,05, 0.4)  8.5%,
+	            	rgba(82,16,05, 0.4) 14.5%,
+	            	rgba(82,16,05, 1.0) 14.9%,
+	            	rgba(00,00,00, 0.0) 15.3%,
+	            	rgba(00,00,00, 0.0) 85.0%,
+	            	rgba(82,16,05, 1.0) 85.1%,
+	            	rgba(82,16,05, 0.4) 85.5%,
+	            	rgba(82,16,05, 0.4) 91.5%,
+	            	rgba(82,16,05, 1.0) 91.9%,
+	            	rgba(00,00,00, 0.0) 92.3%
+	            );
+
+	-webkit-mask-image: -webkit-linear-gradient(
+	                    	rgba(0,0,0, 0)   0%,
+	                    	rgba(0,0,0, 0)   4%,
+	                    	rgba(0,0,0, 1)  10%,
+	                    	rgba(0,0,0, 1)  90%,
+	                    	rgba(0,0,0, 0)  96%,
+	                    	rgba(0,0,0, 0) 100%
+	                    );
+}
+
+.fighters::after {
+	z-index: -1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	content: "";
+	background: linear-gradient(90deg,
+	            	rgba(00,00,00, 0.0) 18.9%,
+	            	rgba(82,16,05, 1.0) 19.0%,
+	            	rgba(82,16,05, 0.4) 20.0%,
+	            	rgba(82,16,05, 0.4) 80.0%,
+	            	rgba(82,16,05, 1.0) 81.0%,
+	            	rgba(00,00,00, 0.0) 81.1%
+	            );
+}
+
+.fighters-border-shadow {
+	position: relative;
+	height: 100%;
+}
+
+.fighters-border-shadow::before {
+	position: absolute;
+	top: 2vh;
+	left: 0.3vh;
+	width: 98.5%;
+	height: 95.2%;
+	box-shadow: 0 0 200px rgba(0,0,0, 1);
+	content: "";
+	background: linear-gradient(90deg,
+	            	rgba(61,31,04, 1.0)   0.0%,
+	            	rgba(61,31,04, 1.0)   0.5%,
+	            	rgba(00,00,00, 0.0)   1.0%,
+	            	rgba(00,00,00, 0.0)  99.0%,
+	            	rgba(61,31,04, 1.0)  99.5%,
+	            	rgba(61,31,04, 1.0) 100.0%
+	            ),
+	            rgba(0,0,0, 0.9);
+}
+
+.fighters-table {
+	z-index: 0;
+	position: relative;
+	height: 100%;
+	padding: 0 16vh;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-content: center;
+	gap: 0.5% 5%;
+	background: radial-gradient(ellipse farthest-corner at center center,
+	            	rgba(160,117,070, 0.8) 50%,
+	            	rgba(000,000,000, 0.0) 70%
+	            );
+}
+
+.fighters-table::before {
+	z-index: -1;
+	position: absolute;
+	top: -9vh;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	content: "";
+	background: url("../assets/decors/frame.png") no-repeat 50% 3.2vh / contain,
+	            url("../assets/decors/arch.png") no-repeat 50% 2.5vh / 85% 25%;
+}
+
+.fighters-table::after {
+	z-index: -1;
+	position: absolute;
+	top: -9vh;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	content: "";
+	transform: rotateX(180deg);
+	background:	url("../assets/decors/frame.png") no-repeat 50% 3.2vh / contain,
+	            url("../assets/decors/arch.png") no-repeat 50% 2.5vh / 85% 25%;
+}
+
+.fighter-img {
+	height: 11vh;
+}
+
+.fighter-img:nth-child(4),
+.fighter-img:nth-child(25) {
+	height: 10.8vh;
+}
+
+.fighter-img:nth-child(3),
+.fighter-img:nth-child(5),
+.fighter-img:nth-child(24),
+.fighter-img:nth-child(26) {
+	height: 10.6vh;
+}
+
+.fighter-img:nth-child(2),
+.fighter-img:nth-child(6),
+.fighter-img:nth-child(23),
+.fighter-img:nth-child(27) {
+	height: 10.5vh;
+}
+
+.fighter-img:nth-child(1),
+.fighter-img:nth-child(7),
+.fighter-img:nth-child(22),
+.fighter-img:nth-child(28) {
+	height: 10.4vh;
+}
+
+.fighter-img:hover {
+	z-index: 0;
+	outline: 4px outset rgb(255, 241, 171);
+	outline-offset: -2px;
+}
